@@ -96,11 +96,14 @@ class MainFrame extends JFrame implements ActionListener {
                 findDirectories(mFile);
                 boolean empty = mTextArea.getText().isEmpty();
                 if (empty) {
-                    mTextArea.setText("未找到build临时文件");
+                    mTextArea.setText("搜索到build临时文件");
                 } else {
                     mTextArea.append("搜索完成，搜索到文件总大小：" + formatSize(mFileTotalLength)+"\n");
                     if (mCacheFile.size()>0){
-                        int code = JOptionPane.showConfirmDialog(MainFrame.this, "已经找到了"+mCacheFile.size()+"项，是否需要删除？", "提示",JOptionPane.YES_NO_OPTION);//返回的是按钮的index  i=0或者1
+                        int code = JOptionPane.showConfirmDialog(
+                                MainFrame.this,
+                                "搜索完成，搜索到文件总大小：" + formatSize(mFileTotalLength)+"，共"+mCacheFile.size()+"项，是否需要删除？",
+                                "提示",JOptionPane.YES_NO_OPTION);
                         if (code==0){
                            mCacheFile.forEach((s, file) -> {
                                deleteDirectory(file.getAbsolutePath());
