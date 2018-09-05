@@ -70,7 +70,7 @@ class MainFrame extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        JFileChooser jfc = new JFileChooser("/Users/huqs/Documents/AndroidKotlinCode");
+        JFileChooser jfc = new JFileChooser();
         jfc.setToolTipText("Android项目路径");
         jfc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
         jfc.showDialog(new JLabel(), "选择");
@@ -112,7 +112,7 @@ class MainFrame extends JFrame implements ActionListener {
                 }
             }).start();
         } else {
-            JOptionPane.showMessageDialog(this, "（路径找不到）", "警告", JOptionPane.ERROR_MESSAGE);
+//            JOptionPane.showMessageDialog(this, "（路径找不到）", "警告", JOptionPane.ERROR_MESSAGE);
         }
 
 
